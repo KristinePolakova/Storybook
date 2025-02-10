@@ -3,12 +3,12 @@
     "interfaces": [
         {
             "name": "CheckboxGroupArgs",
-            "id": "interface-CheckboxGroupArgs-0f61031953816a7b553c196bd7d4d27adf43bec71467be6ef7df8bf93c8337e3c5df0abf0c1030447a99fabf09985fb9df2cab9f35aa120b926e25795a9b864a",
+            "id": "interface-CheckboxGroupArgs-ee365629e5cd60add11dc5c29174ffc48aea86ed1b59bf8d91343fb44f9f71b83b1564d05a720f72bb3d338e06bf6912d5d13b661cd87b8c3ed27be7721fc298",
             "file": "src/app/components/checkbox-group/stories/checkbox-group.args.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import type { CheckboxItem } from '../checkbox-group.component';\r\nimport type { ArgTypes } from '@storybook/angular';\r\n\r\n/**\r\n * Defines the shape of the arguments for the CheckboxGroup component.\r\n */\r\nexport interface CheckboxGroupArgs {\r\n  /** Optional legend for the fieldset */\r\n  legend?: string;\r\n  /** Array of checkbox items */\r\n  items: CheckboxItem[];\r\n  /** Determines if the checkbox group is displayed vertically */\r\n  isVertical: boolean;\r\n  /**\r\n   * If set to true, forces all checkboxes to use the large variant\r\n   * and the layout will always be vertical.\r\n   */\r\n  isLarge?: boolean;\r\n}\r\n\r\n/**\r\n * Default checkbox items that can be reused in stories.\r\n */\r\nexport const defaultCheckboxItems: CheckboxItem[] = [\r\n  { label: 'Option 1', checked: false },\r\n  { label: 'Option 2', checked: true, isInvalid: true },\r\n  { label: 'Option 3', checked: false },\r\n];\r\n\r\n/**\r\n * ArgTypes for Storybook controls and documentation.\r\n */\r\nexport const checkboxGroupArgTypes: ArgTypes<CheckboxGroupArgs> = {\r\n  legend: {\r\n    control: 'text',\r\n    description: 'Optional legend for the checkbox group fieldset.',\r\n  },\r\n  items: {\r\n    control: 'object',\r\n    description:\r\n      'Array of checkbox items. Each item should have a label (string), checked (boolean), and optionally isInvalid, isLabelHidden, and isLarge.',\r\n  },\r\n  isVertical: {\r\n    control: 'boolean',\r\n    description:\r\n      'Determines if the checkbox group is displayed vertically (true) or horizontally (false).',\r\n  },\r\n  isLarge: {\r\n    control: 'boolean',\r\n    description:\r\n      'If set to true, all checkboxes in the group will use the large variant and the layout will always be vertical.',\r\n  },\r\n};\r\n",
+            "sourceCode": "import type { CheckboxItem } from '../checkbox-group.component';\r\nimport type { ArgTypes } from '@storybook/angular';\r\n\r\nexport interface CheckboxGroupArgs {\r\n  legend?: string;\r\n  items: CheckboxItem[];\r\n  isVertical: boolean;\r\n  isLarge?: boolean;\r\n}\r\n\r\n/**\r\n * Default checkbox items that can be reused in stories.\r\n */\r\nexport const defaultCheckboxItems: CheckboxItem[] = [\r\n  { label: 'Option 1', checked: false },\r\n  { label: 'Option 2', checked: true },\r\n  { label: 'Option 3', checked: false },\r\n];\r\n\r\n/**\r\n * ArgTypes for Storybook controls and documentation.\r\n */\r\nexport const checkboxGroupArgTypes: ArgTypes<CheckboxGroupArgs> = {\r\n  legend: {\r\n    control: 'text',\r\n    description: 'Optional legend for the checkbox group fieldset.',\r\n  },\r\n  items: {\r\n    control: 'object',\r\n    description:\r\n      'Array of checkbox items. Each item should have a label (string), checked (boolean), and optionally isInvalid, isLabelHidden, and isLarge.',\r\n  },\r\n  isVertical: {\r\n    control: 'boolean',\r\n    description:\r\n      'Determines if the checkbox group is displayed vertically (true) or horizontally (false).',\r\n    if: { arg: 'isLarge', truthy: false },\r\n  },\r\n  isLarge: {\r\n    control: 'boolean',\r\n    description:\r\n      'If set to true, all checkboxes in the group will use the large variant and the layout will always be vertical.',\r\n  },\r\n};\r\n",
             "properties": [
                 {
                     "name": "isLarge",
@@ -17,9 +17,8 @@
                     "type": "boolean",
                     "indexKey": "",
                     "optional": true,
-                    "description": "<p>If set to true, forces all checkboxes to use the large variant\nand the layout will always be vertical.</p>\n",
-                    "line": 19,
-                    "rawdescription": "\n\nIf set to true, forces all checkboxes to use the large variant\nand the layout will always be vertical.\n"
+                    "description": "",
+                    "line": 8
                 },
                 {
                     "name": "isVertical",
@@ -28,9 +27,8 @@
                     "type": "boolean",
                     "indexKey": "",
                     "optional": false,
-                    "description": "<p>Determines if the checkbox group is displayed vertically</p>\n",
-                    "line": 14,
-                    "rawdescription": "\nDetermines if the checkbox group is displayed vertically"
+                    "description": "",
+                    "line": 7
                 },
                 {
                     "name": "items",
@@ -39,9 +37,8 @@
                     "type": "CheckboxItem[]",
                     "indexKey": "",
                     "optional": false,
-                    "description": "<p>Array of checkbox items</p>\n",
-                    "line": 12,
-                    "rawdescription": "\nArray of checkbox items"
+                    "description": "",
+                    "line": 6
                 },
                 {
                     "name": "legend",
@@ -50,15 +47,12 @@
                     "type": "string",
                     "indexKey": "",
                     "optional": true,
-                    "description": "<p>Optional legend for the fieldset</p>\n",
-                    "line": 10,
-                    "rawdescription": "\nOptional legend for the fieldset"
+                    "description": "",
+                    "line": 5
                 }
             ],
             "indexSignatures": [],
             "kind": 171,
-            "description": "<p>Defines the shape of the arguments for the CheckboxGroup component.</p>\n",
-            "rawdescription": "\n\nDefines the shape of the arguments for the CheckboxGroup component.\n",
             "methods": [],
             "extends": []
         },
@@ -764,7 +758,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ArgTypes<CheckboxGroupArgs>",
-                "defaultValue": "{\r\n  legend: {\r\n    control: 'text',\r\n    description: 'Optional legend for the checkbox group fieldset.',\r\n  },\r\n  items: {\r\n    control: 'object',\r\n    description:\r\n      'Array of checkbox items. Each item should have a label (string), checked (boolean), and optionally isInvalid, isLabelHidden, and isLarge.',\r\n  },\r\n  isVertical: {\r\n    control: 'boolean',\r\n    description:\r\n      'Determines if the checkbox group is displayed vertically (true) or horizontally (false).',\r\n  },\r\n  isLarge: {\r\n    control: 'boolean',\r\n    description:\r\n      'If set to true, all checkboxes in the group will use the large variant and the layout will always be vertical.',\r\n  },\r\n}",
+                "defaultValue": "{\r\n  legend: {\r\n    control: 'text',\r\n    description: 'Optional legend for the checkbox group fieldset.',\r\n  },\r\n  items: {\r\n    control: 'object',\r\n    description:\r\n      'Array of checkbox items. Each item should have a label (string), checked (boolean), and optionally isInvalid, isLabelHidden, and isLarge.',\r\n  },\r\n  isVertical: {\r\n    control: 'boolean',\r\n    description:\r\n      'Determines if the checkbox group is displayed vertically (true) or horizontally (false).',\r\n    if: { arg: 'isLarge', truthy: false },\r\n  },\r\n  isLarge: {\r\n    control: 'boolean',\r\n    description:\r\n      'If set to true, all checkboxes in the group will use the large variant and the layout will always be vertical.',\r\n  },\r\n}",
                 "rawdescription": "ArgTypes for Storybook controls and documentation.",
                 "description": "<p>ArgTypes for Storybook controls and documentation.</p>\n"
             },
@@ -786,7 +780,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "CheckboxItem[]",
-                "defaultValue": "[\r\n  { label: 'Option 1', checked: false },\r\n  { label: 'Option 2', checked: true, isInvalid: true },\r\n  { label: 'Option 3', checked: false },\r\n]",
+                "defaultValue": "[\r\n  { label: 'Option 1', checked: false },\r\n  { label: 'Option 2', checked: true },\r\n  { label: 'Option 3', checked: false },\r\n]",
                 "rawdescription": "Default checkbox items that can be reused in stories.",
                 "description": "<p>Default checkbox items that can be reused in stories.</p>\n"
             },
@@ -838,7 +832,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ArgTypes<CheckboxGroupArgs>",
-                    "defaultValue": "{\r\n  legend: {\r\n    control: 'text',\r\n    description: 'Optional legend for the checkbox group fieldset.',\r\n  },\r\n  items: {\r\n    control: 'object',\r\n    description:\r\n      'Array of checkbox items. Each item should have a label (string), checked (boolean), and optionally isInvalid, isLabelHidden, and isLarge.',\r\n  },\r\n  isVertical: {\r\n    control: 'boolean',\r\n    description:\r\n      'Determines if the checkbox group is displayed vertically (true) or horizontally (false).',\r\n  },\r\n  isLarge: {\r\n    control: 'boolean',\r\n    description:\r\n      'If set to true, all checkboxes in the group will use the large variant and the layout will always be vertical.',\r\n  },\r\n}",
+                    "defaultValue": "{\r\n  legend: {\r\n    control: 'text',\r\n    description: 'Optional legend for the checkbox group fieldset.',\r\n  },\r\n  items: {\r\n    control: 'object',\r\n    description:\r\n      'Array of checkbox items. Each item should have a label (string), checked (boolean), and optionally isInvalid, isLabelHidden, and isLarge.',\r\n  },\r\n  isVertical: {\r\n    control: 'boolean',\r\n    description:\r\n      'Determines if the checkbox group is displayed vertically (true) or horizontally (false).',\r\n    if: { arg: 'isLarge', truthy: false },\r\n  },\r\n  isLarge: {\r\n    control: 'boolean',\r\n    description:\r\n      'If set to true, all checkboxes in the group will use the large variant and the layout will always be vertical.',\r\n  },\r\n}",
                     "rawdescription": "ArgTypes for Storybook controls and documentation.",
                     "description": "<p>ArgTypes for Storybook controls and documentation.</p>\n"
                 },
@@ -850,7 +844,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "CheckboxItem[]",
-                    "defaultValue": "[\r\n  { label: 'Option 1', checked: false },\r\n  { label: 'Option 2', checked: true, isInvalid: true },\r\n  { label: 'Option 3', checked: false },\r\n]",
+                    "defaultValue": "[\r\n  { label: 'Option 1', checked: false },\r\n  { label: 'Option 2', checked: true },\r\n  { label: 'Option 3', checked: false },\r\n]",
                     "rawdescription": "Default checkbox items that can be reused in stories.",
                     "description": "<p>Default checkbox items that can be reused in stories.</p>\n"
                 }
@@ -884,8 +878,8 @@
     },
     "routes": [],
     "coverage": {
-        "count": 31,
-        "status": "medium",
+        "count": 24,
+        "status": "low",
         "files": [
             {
                 "filePath": "src/app/app.component.ts",
@@ -949,9 +943,9 @@
                 "type": "interface",
                 "linktype": "interface",
                 "name": "CheckboxGroupArgs",
-                "coveragePercent": 100,
-                "coverageCount": "5/5",
-                "status": "very-good"
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
             },
             {
                 "filePath": "src/app/components/checkbox-group/stories/checkbox-group.args.ts",

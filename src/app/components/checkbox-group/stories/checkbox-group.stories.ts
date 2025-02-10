@@ -47,10 +47,11 @@ export const Large: Story = {
   },
 };
 
-export const AllInvalid: Story = {
+export const largeInvalid: Story = {
   args: {
     legend: 'All Invalid Checkbox Group',
     isVertical: false,
+    isLarge: true,
     items: defaultCheckboxItems.map((item) => ({
       ...item,
       isInvalid: true,
