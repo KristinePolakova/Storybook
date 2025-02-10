@@ -49,3 +49,11 @@ export const Large: Story = {
     isLarge: true,
   },
 };
+
+export const WithSubtitle: Story = {
+  args: {
+    label: "Default Checkbox",
+    checked: false,
+    subtitle: "Subtitle text for default checkbox"
+  }
+};

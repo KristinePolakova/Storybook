@@ -16,12 +16,25 @@ import { Component, Input } from '@angular/core';
   styleUrl: './checkbox.component.scss',
 })
 export class CheckboxComponent {
-  @Input() label: string = 'Checkbox';
+  /** Sets the name attribute for each checkbox*/
+  @Input() label!: string;
+
+  /** Toggle switch for checkbox*/
   @Input() checked: boolean = false;
+
+  /** Sets invalid state*/
   @Input() isInvalid?: boolean = false;
+
+  /** Hides the title and sub text*/
   @Input() isLabelHidden?: boolean = false;
+
+  /** Determines if checkbox should ne rendered as the large variant*/
   @Input() isLarge?: boolean = false;
 
+  /** Subtext below the label of checkbox*/
+  @Input() subtitle?: string;
+
+  /** @internal*/
   toggleCheck(): void {
     this.checked = !this.checked;
   }

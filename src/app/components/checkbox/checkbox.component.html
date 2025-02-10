@@ -6,6 +6,6 @@
   <input type="checkbox" [checked]="checked" (change)="toggleCheck()" />
   <div class="checkbox__label" [class.visually-hidden]="isLabelHidden">
     <span *ngIf="!isLabelHidden" class="checkbox-title">{{ label }}</span>
-    <div class="checkbox__sub"></div>
+    <div class="checkbox__sub">{{ subtitle }}</div>
   </div>
 </label>

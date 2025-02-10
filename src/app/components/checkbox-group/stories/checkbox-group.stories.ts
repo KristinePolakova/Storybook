@@ -111,3 +111,17 @@ export const Large: Story = {
     ],
   },
 };
+
+export const LargeInvalid: Story = {
+  args: {
+    legend: 'Vertical Checkbox Group',
+    isVertical: true,
+    isLarge: true,
+
+    items: [
+      { label: 'Option A', checked: true, isInvalid: true },
+      { label: 'Option B', checked: false, isInvalid: true },
+      { label: 'Option C', checked: false, isInvalid: true },
+    ],
+  },
+};

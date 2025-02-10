@@ -6,8 +6,17 @@ label {
   border: 1px solid transparent;
   //   color: lightblue;
 
+  &:focus {
+    box-shadow: 0 0 0 3px green;
+  }
+
   &.is-invalid {
     border-color: red;
+    border-radius: 4px;
+
+    &:hover {
+      box-shadow: 0 0 0 3px orange;
+    }
   }
 
   &.checkbox--large-item {
@@ -15,8 +24,16 @@ label {
     border: 2px solid #007acc;
     border-radius: 4px;
 
+    &:hover {
+      box-shadow: 0 0 0 3px lightblue;
+    }
+
     &.is-invalid {
       border-color: red;
+
+      &:hover {
+        box-shadow: 0 0 0 3px orange;
+      }
     }
   }
 }
@@ -24,10 +41,15 @@ label {
 .checkbox__label {
   display: flex;
   flex-direction: column;
+  padding-left: 0.2rem;
 }
 
 .checkbox-title {
   font-size: 1rem;
+}
+
+.checkbox__sub {
+  font-size: small;
 }
 
 .visually-hidden {

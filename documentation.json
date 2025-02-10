@@ -288,7 +288,7 @@
         },
         {
             "name": "CheckboxComponent",
-            "id": "component-CheckboxComponent-20163b0d7aae0789897eda60bf5e2bde01d0440cc10ba032c60a0e79f91bfc3f6de4aecd7a6a05055adfc25cc657109a91b77fe8648d0d1ea3ee45d2c7e98a44",
+            "id": "component-CheckboxComponent-ba35b009f3687b039b3e2ea91aea213553e154ff50d29bc13fab25253daf690f2a3b22dc00caaed9d13925fa63167746d7192502121a787f388ece9cddf98f35",
             "file": "src/app/components/checkbox/checkbox.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -309,7 +309,9 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "rawdescription": "\nToggle switch for checkbox",
+                    "description": "<p>Toggle switch for checkbox</p>\n",
+                    "line": 23,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -318,7 +320,9 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "rawdescription": "\nSets invalid state",
+                    "description": "<p>Sets invalid state</p>\n",
+                    "line": 26,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -327,7 +331,9 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "rawdescription": "\nHides the title and sub text",
+                    "description": "<p>Hides the title and sub text</p>\n",
+                    "line": 29,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -336,16 +342,29 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "rawdescription": "\nDetermines if checkbox should ne rendered as the large variant",
+                    "description": "<p>Determines if checkbox should ne rendered as the large variant</p>\n",
+                    "line": 32,
                     "type": "boolean",
                     "decorators": []
                 },
                 {
                     "name": "label",
-                    "defaultValue": "'Checkbox'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "rawdescription": "\nSets the name attribute for each checkbox",
+                    "description": "<p>Sets the name attribute for each checkbox</p>\n",
+                    "line": 20,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "subtitle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nSubtext below the label of checkbox",
+                    "description": "<p>Subtext below the label of checkbox</p>\n",
+                    "line": 35,
                     "type": "string",
                     "decorators": []
                 }
@@ -359,9 +378,12 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 25,
+                    "line": 38,
                     "deprecated": false,
-                    "deprecationMessage": ""
+                    "deprecationMessage": "",
+                    "rawdescription": "",
+                    "description": "",
+                    "jsdoctags": []
                 }
             ],
             "deprecated": false,
@@ -378,13 +400,13 @@
             "description": "<p>Checkboxes can be used as a individual component or with multiple in a group\nYou can use &#39;labelHidden&#39; boolean which makes label invisible, but remains accessible by screenreaders.\nTake a look at the <a href=\"/docs/components-checkbox-group--docs\">Checkbox groups</a> we support.</p>\n",
             "rawdescription": "\n\nCheckboxes can be used as a individual component or with multiple in a group\nYou can use 'labelHidden' boolean which makes label invisible, but remains accessible by screenreaders.\nTake a look at the <a href=\"/docs/components-checkbox-group--docs\">Checkbox groups</a> we support.\n\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\n\r\n/**\r\n * Checkboxes can be used as a individual component or with multiple in a group\r\n * You can use 'labelHidden' boolean which makes label invisible, but remains accessible by screenreaders.\r\n * Take a look at the <a href=\"/docs/components-checkbox-group--docs\">Checkbox groups</a> we support.\r\n *\r\n */\r\n\r\n@Component({\r\n  selector: 'app-checkbox',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  templateUrl: './checkbox.component.html',\r\n  styleUrl: './checkbox.component.scss',\r\n})\r\nexport class CheckboxComponent {\r\n  @Input() label: string = 'Checkbox';\r\n  @Input() checked: boolean = false;\r\n  @Input() isInvalid?: boolean = false;\r\n  @Input() isLabelHidden?: boolean = false;\r\n  @Input() isLarge?: boolean = false;\r\n\r\n  toggleCheck(): void {\r\n    this.checked = !this.checked;\r\n  }\r\n}\r\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\n\r\n/**\r\n * Checkboxes can be used as a individual component or with multiple in a group\r\n * You can use 'labelHidden' boolean which makes label invisible, but remains accessible by screenreaders.\r\n * Take a look at the <a href=\"/docs/components-checkbox-group--docs\">Checkbox groups</a> we support.\r\n *\r\n */\r\n\r\n@Component({\r\n  selector: 'app-checkbox',\r\n  standalone: true,\r\n  imports: [CommonModule],\r\n  templateUrl: './checkbox.component.html',\r\n  styleUrl: './checkbox.component.scss',\r\n})\r\nexport class CheckboxComponent {\r\n  /** Sets the name attribute for each checkbox*/\r\n  @Input() label!: string;\r\n\r\n  /** Toggle switch for checkbox*/\r\n  @Input() checked: boolean = false;\r\n\r\n  /** Sets invalid state*/\r\n  @Input() isInvalid?: boolean = false;\r\n\r\n  /** Hides the title and sub text*/\r\n  @Input() isLabelHidden?: boolean = false;\r\n\r\n  /** Determines if checkbox should ne rendered as the large variant*/\r\n  @Input() isLarge?: boolean = false;\r\n\r\n  /** Subtext below the label of checkbox*/\r\n  @Input() subtitle?: string;\r\n\r\n  /** @internal*/\r\n  toggleCheck(): void {\r\n    this.checked = !this.checked;\r\n  }\r\n}\r\n",
             "styleUrl": "./checkbox.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<label\r\n  class=\"checkbox\"\r\n  [class.is-invalid]=\"isInvalid\"\r\n  [class.checkbox--large-item]=\"isLarge\"\r\n>\r\n  <input type=\"checkbox\" [checked]=\"checked\" (change)=\"toggleCheck()\" />\r\n  <div class=\"checkbox__label\" [class.visually-hidden]=\"isLabelHidden\">\r\n    <span *ngIf=\"!isLabelHidden\" class=\"checkbox-title\">{{ label }}</span>\r\n    <div class=\"checkbox__sub\"></div>\r\n  </div>\r\n</label>\r\n"
+            "templateData": "<label\r\n  class=\"checkbox\"\r\n  [class.is-invalid]=\"isInvalid\"\r\n  [class.checkbox--large-item]=\"isLarge\"\r\n>\r\n  <input type=\"checkbox\" [checked]=\"checked\" (change)=\"toggleCheck()\" />\r\n  <div class=\"checkbox__label\" [class.visually-hidden]=\"isLabelHidden\">\r\n    <span *ngIf=\"!isLabelHidden\" class=\"checkbox-title\">{{ label }}</span>\r\n    <div class=\"checkbox__sub\">{{ subtitle }}</div>\r\n  </div>\r\n</label>\r\n"
         },
         {
             "name": "CheckboxGroupComponent",
@@ -751,7 +773,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 8,
+        "count": 14,
         "status": "low",
         "files": [
             {
@@ -816,9 +838,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "CheckboxComponent",
-                "coveragePercent": 14,
-                "coverageCount": "1/7",
-                "status": "low"
+                "coveragePercent": 87,
+                "coverageCount": "7/8",
+                "status": "very-good"
             },
             {
                 "filePath": "src/main.server.ts",
