@@ -1,0 +1,11 @@
+<label
+  class="checkbox"
+  [class.is-invalid]="isInvalid"
+  [class.checkbox--large-item]="isLarge"
+>
+  <input type="checkbox" [checked]="checked" (change)="toggleCheck()" />
+  <div class="checkbox__label" [class.visually-hidden]="isLabelHidden">
+    <span *ngIf="!isLabelHidden" class="checkbox-title">{{ label }}</span>
+    <div class="checkbox__sub"></div>
+  </div>
+</label>

@@ -1,0 +1,39 @@
+label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  //   color: lightblue;
+
+  &.is-invalid {
+    border-color: red;
+  }
+
+  &.checkbox--large-item {
+    padding: 1rem;
+    border: 2px solid #007acc;
+    border-radius: 4px;
+
+    &.is-invalid {
+      border-color: red;
+    }
+  }
+}
+
+.checkbox__label {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-title {
+  font-size: 1rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}

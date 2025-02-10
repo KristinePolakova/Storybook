@@ -1,0 +1,41 @@
+<!-- <fieldset
+  class="checkbox-group"
+  [ngClass]="{
+    'checkbox-group--vertical': variant === 'large' || direction === 'vertical',
+    'checkbox-group--horizontal':
+      variant === 'normal' && direction == 'horizontal'
+  }"
+>
+  <legend *ngIf="legend">{{ legend }}</legend>
+
+  <ng-container *ngFor="let item of items">
+    <app-checkbox
+      [label]="item.label"
+      [checked]="item.checked"
+      [isLabelHidden]="item.isLabelHidden"
+      [isLarge]="variant === 'large' ? true : item.isLarge"
+      [isInvalid]="item.isInvalid"
+    >
+    </app-checkbox>
+  </ng-container>
+</fieldset> -->
+
+<fieldset
+  class="checkbox-group"
+  [ngClass]="{
+    'checkbox-group--vertical': isVertical,
+    'checkbox-group--horizontal': !isVertical
+  }"
+>
+  <legend *ngIf="legend">{{ legend }}</legend>
+  <ng-container *ngFor="let item of items">
+    <app-checkbox
+      [label]="item.label"
+      [checked]="item.checked"
+      [isLabelHidden]="item.isLabelHidden"
+      [isInvalid]="item.isInvalid"
+      [isLarge]="isLarge !== undefined ? isLarge : item.isLarge"
+    >
+    </app-checkbox>
+  </ng-container>
+</fieldset>
