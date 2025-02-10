@@ -1,64 +1,11 @@
-// export const Large: Story = {
-//   args: {
-//     items: [
-//       {
-//         label: 'Option 1',
-//         checked: false,
-//         isLarge: true,
-//       },
-//       {
-//         label: 'Option 2',
-//         checked: false,
-//         isLarge: true,
-//       },
-//       {
-//         label: 'Option 3',
-//         checked: false,
-//         isLarge: true,
-//       },
-//     ],
-
-//     variant: 'large',
-//   },
-// };
-
-// export const WithLegend: Story = {
-//   args: {
-//     items: [{
-//       "label": "Option 1",
-//       "checked": false
-//     }, {
-//       "label": "Option 2",
-//       "checked": true
-//     }, {
-//       "label": "Option 3",
-//       "checked": false
-//     }],
-
-//     legend: "Legend",
-//     variant: "normal"
-//   }
-// };
-
-// export const Vertical: Story = {
-//   args: {
-//     items: [{
-//       "label": "Option 1",
-//       "checked": false
-//     }, {
-//       "label": "Option 2",
-//       "checked": true
-//     }, {
-//       "label": "Option 3",
-//       "checked": false
-//     }],
-
-//     direction: "vertical"
-//   }
-// };
+// checkbox-group.stories.ts
 import type { Meta, StoryObj } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import { CheckboxGroupComponent } from '../checkbox-group.component';
+import {
+  checkboxGroupArgTypes,
+  defaultCheckboxItems,
+} from './checkbox-group.args';
 
 const meta: Meta<CheckboxGroupComponent> = {
   title: 'Components/Checkbox Group',
@@ -69,6 +16,7 @@ const meta: Meta<CheckboxGroupComponent> = {
       imports: [CheckboxGroupComponent],
     }),
   ],
+  argTypes: checkboxGroupArgTypes,
 };
 
 export default meta;
@@ -78,12 +26,7 @@ export const Horizontal: Story = {
   args: {
     legend: 'Horizontal Checkbox Group',
     isVertical: false,
-    items: [
-      { label: 'Option 1', checked: false },
-      { label: 'Option 2', checked: true },
-      { label: 'Option 3', checked: false },
-      { label: 'Option 4', checked: false },
-    ],
+    items: defaultCheckboxItems,
   },
 };
 
@@ -91,11 +34,7 @@ export const Vertical: Story = {
   args: {
     legend: 'Vertical Checkbox Group',
     isVertical: true,
-    items: [
-      { label: 'Option A', checked: true },
-      { label: 'Option B', checked: false },
-      { label: 'Option C', checked: false },
-    ],
+    items: defaultCheckboxItems,
   },
 };
 
@@ -104,24 +43,17 @@ export const Large: Story = {
     legend: 'Large Checkbox Group',
     isVertical: true,
     isLarge: true,
-    items: [
-      { label: 'Large Option 1', checked: false },
-      { label: 'Large Option 2', checked: true },
-      { label: 'Large Option 3', checked: false },
-    ],
+    items: defaultCheckboxItems,
   },
 };
 
-export const LargeInvalid: Story = {
+export const AllInvalid: Story = {
   args: {
-    legend: 'Vertical Checkbox Group',
-    isVertical: true,
-    isLarge: true,
-
-    items: [
-      { label: 'Option A', checked: true, isInvalid: true },
-      { label: 'Option B', checked: false, isInvalid: true },
-      { label: 'Option C', checked: false, isInvalid: true },
-    ],
+    legend: 'All Invalid Checkbox Group',
+    isVertical: false,
+    items: defaultCheckboxItems.map((item) => ({
+      ...item,
+      isInvalid: true,
+    })),
   },
 };

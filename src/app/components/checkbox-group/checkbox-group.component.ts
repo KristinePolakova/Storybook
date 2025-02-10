@@ -18,10 +18,8 @@ export interface CheckboxItem {
   styleUrl: './checkbox-group.component.scss',
 })
 export class CheckboxGroupComponent {
-  // Array of checkbox items
   @Input() items: CheckboxItem[] = [];
 
-  // Optional legend for the fieldset.
   @Input() legend?: string;
 
   @Input() isVertical? = false;

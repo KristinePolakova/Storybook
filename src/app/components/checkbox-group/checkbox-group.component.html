@@ -1,8 +1,8 @@
 <fieldset
   class="checkbox-group"
   [ngClass]="{
-    'checkbox-group--vertical': isVertical,
-    'checkbox-group--horizontal': !isVertical
+    'checkbox-group--vertical': isLarge === true || isVertical,
+    'checkbox-group--horizontal': isLarge !== true && !isVertical
   }"
 >
   <legend *ngIf="legend">{{ legend }}</legend>

@@ -2,13 +2,74 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "CheckboxGroupArgs",
+            "id": "interface-CheckboxGroupArgs-0f61031953816a7b553c196bd7d4d27adf43bec71467be6ef7df8bf93c8337e3c5df0abf0c1030447a99fabf09985fb9df2cab9f35aa120b926e25795a9b864a",
+            "file": "src/app/components/checkbox-group/stories/checkbox-group.args.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import type { CheckboxItem } from '../checkbox-group.component';\r\nimport type { ArgTypes } from '@storybook/angular';\r\n\r\n/**\r\n * Defines the shape of the arguments for the CheckboxGroup component.\r\n */\r\nexport interface CheckboxGroupArgs {\r\n  /** Optional legend for the fieldset */\r\n  legend?: string;\r\n  /** Array of checkbox items */\r\n  items: CheckboxItem[];\r\n  /** Determines if the checkbox group is displayed vertically */\r\n  isVertical: boolean;\r\n  /**\r\n   * If set to true, forces all checkboxes to use the large variant\r\n   * and the layout will always be vertical.\r\n   */\r\n  isLarge?: boolean;\r\n}\r\n\r\n/**\r\n * Default checkbox items that can be reused in stories.\r\n */\r\nexport const defaultCheckboxItems: CheckboxItem[] = [\r\n  { label: 'Option 1', checked: false },\r\n  { label: 'Option 2', checked: true, isInvalid: true },\r\n  { label: 'Option 3', checked: false },\r\n];\r\n\r\n/**\r\n * ArgTypes for Storybook controls and documentation.\r\n */\r\nexport const checkboxGroupArgTypes: ArgTypes<CheckboxGroupArgs> = {\r\n  legend: {\r\n    control: 'text',\r\n    description: 'Optional legend for the checkbox group fieldset.',\r\n  },\r\n  items: {\r\n    control: 'object',\r\n    description:\r\n      'Array of checkbox items. Each item should have a label (string), checked (boolean), and optionally isInvalid, isLabelHidden, and isLarge.',\r\n  },\r\n  isVertical: {\r\n    control: 'boolean',\r\n    description:\r\n      'Determines if the checkbox group is displayed vertically (true) or horizontally (false).',\r\n  },\r\n  isLarge: {\r\n    control: 'boolean',\r\n    description:\r\n      'If set to true, all checkboxes in the group will use the large variant and the layout will always be vertical.',\r\n  },\r\n};\r\n",
+            "properties": [
+                {
+                    "name": "isLarge",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "<p>If set to true, forces all checkboxes to use the large variant\nand the layout will always be vertical.</p>\n",
+                    "line": 19,
+                    "rawdescription": "\n\nIf set to true, forces all checkboxes to use the large variant\nand the layout will always be vertical.\n"
+                },
+                {
+                    "name": "isVertical",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "<p>Determines if the checkbox group is displayed vertically</p>\n",
+                    "line": 14,
+                    "rawdescription": "\nDetermines if the checkbox group is displayed vertically"
+                },
+                {
+                    "name": "items",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "CheckboxItem[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "<p>Array of checkbox items</p>\n",
+                    "line": 12,
+                    "rawdescription": "\nArray of checkbox items"
+                },
+                {
+                    "name": "legend",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "<p>Optional legend for the fieldset</p>\n",
+                    "line": 10,
+                    "rawdescription": "\nOptional legend for the fieldset"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "description": "<p>Defines the shape of the arguments for the CheckboxGroup component.</p>\n",
+            "rawdescription": "\n\nDefines the shape of the arguments for the CheckboxGroup component.\n",
+            "methods": [],
+            "extends": []
+        },
+        {
             "name": "CheckboxItem",
-            "id": "interface-CheckboxItem-a858dd995865707a66c3d6b765105ab8dcc7ed854aa0c2c79f5dbcb05c1abd975e7996177026c66ae8751f29b9a5f4aa398894db20654632dd716b54a7b6165d",
+            "id": "interface-CheckboxItem-a3fc575cf9d24bbf7ae54bbe4b687a9b481b8171e6401bd418b66982b75f77b706574491b9a6074ddefe399c8795ede86028d8c5efdee6a72e766bc6ad8ab7e9",
             "file": "src/app/components/checkbox-group/checkbox-group.component.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { CheckboxComponent } from '../checkbox/checkbox.component';\r\n\r\nexport interface CheckboxItem {\r\n  label: string;\r\n  checked: boolean;\r\n  isInvalid?: boolean;\r\n  isLabelHidden?: boolean;\r\n  isLarge?: boolean;\r\n}\r\n\r\n@Component({\r\n  selector: 'app-checkbox-group',\r\n  standalone: true,\r\n  imports: [CheckboxComponent, CommonModule],\r\n  templateUrl: './checkbox-group.component.html',\r\n  styleUrl: './checkbox-group.component.scss',\r\n})\r\nexport class CheckboxGroupComponent {\r\n  // Array of checkbox items\r\n  @Input() items: CheckboxItem[] = [];\r\n\r\n  // Optional legend for the fieldset.\r\n  @Input() legend?: string;\r\n\r\n  @Input() isVertical? = false;\r\n\r\n  @Input() isLarge? = false;\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { CheckboxComponent } from '../checkbox/checkbox.component';\r\n\r\nexport interface CheckboxItem {\r\n  label: string;\r\n  checked: boolean;\r\n  isInvalid?: boolean;\r\n  isLabelHidden?: boolean;\r\n  isLarge?: boolean;\r\n}\r\n\r\n@Component({\r\n  selector: 'app-checkbox-group',\r\n  standalone: true,\r\n  imports: [CheckboxComponent, CommonModule],\r\n  templateUrl: './checkbox-group.component.html',\r\n  styleUrl: './checkbox-group.component.scss',\r\n})\r\nexport class CheckboxGroupComponent {\r\n  @Input() items: CheckboxItem[] = [];\r\n\r\n  @Input() legend?: string;\r\n\r\n  @Input() isVertical? = false;\r\n\r\n  @Input() isLarge? = false;\r\n}\r\n",
             "properties": [
                 {
                     "name": "checked",
@@ -410,7 +471,7 @@
         },
         {
             "name": "CheckboxGroupComponent",
-            "id": "component-CheckboxGroupComponent-a858dd995865707a66c3d6b765105ab8dcc7ed854aa0c2c79f5dbcb05c1abd975e7996177026c66ae8751f29b9a5f4aa398894db20654632dd716b54a7b6165d",
+            "id": "component-CheckboxGroupComponent-a3fc575cf9d24bbf7ae54bbe4b687a9b481b8171e6401bd418b66982b75f77b706574491b9a6074ddefe399c8795ede86028d8c5efdee6a72e766bc6ad8ab7e9",
             "file": "src/app/components/checkbox-group/checkbox-group.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -431,7 +492,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 27,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -440,7 +501,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
+                    "line": 25,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -449,7 +510,7 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 21,
                     "type": "CheckboxItem[]",
                     "decorators": []
                 },
@@ -457,7 +518,7 @@
                     "name": "legend",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 25,
+                    "line": 23,
                     "type": "string",
                     "decorators": []
                 }
@@ -483,13 +544,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { CheckboxComponent } from '../checkbox/checkbox.component';\r\n\r\nexport interface CheckboxItem {\r\n  label: string;\r\n  checked: boolean;\r\n  isInvalid?: boolean;\r\n  isLabelHidden?: boolean;\r\n  isLarge?: boolean;\r\n}\r\n\r\n@Component({\r\n  selector: 'app-checkbox-group',\r\n  standalone: true,\r\n  imports: [CheckboxComponent, CommonModule],\r\n  templateUrl: './checkbox-group.component.html',\r\n  styleUrl: './checkbox-group.component.scss',\r\n})\r\nexport class CheckboxGroupComponent {\r\n  // Array of checkbox items\r\n  @Input() items: CheckboxItem[] = [];\r\n\r\n  // Optional legend for the fieldset.\r\n  @Input() legend?: string;\r\n\r\n  @Input() isVertical? = false;\r\n\r\n  @Input() isLarge? = false;\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { CheckboxComponent } from '../checkbox/checkbox.component';\r\n\r\nexport interface CheckboxItem {\r\n  label: string;\r\n  checked: boolean;\r\n  isInvalid?: boolean;\r\n  isLabelHidden?: boolean;\r\n  isLarge?: boolean;\r\n}\r\n\r\n@Component({\r\n  selector: 'app-checkbox-group',\r\n  standalone: true,\r\n  imports: [CheckboxComponent, CommonModule],\r\n  templateUrl: './checkbox-group.component.html',\r\n  styleUrl: './checkbox-group.component.scss',\r\n})\r\nexport class CheckboxGroupComponent {\r\n  @Input() items: CheckboxItem[] = [];\r\n\r\n  @Input() legend?: string;\r\n\r\n  @Input() isVertical? = false;\r\n\r\n  @Input() isLarge? = false;\r\n}\r\n",
             "styleUrl": "./checkbox-group.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<!-- <fieldset\r\n  class=\"checkbox-group\"\r\n  [ngClass]=\"{\r\n    'checkbox-group--vertical': variant === 'large' || direction === 'vertical',\r\n    'checkbox-group--horizontal':\r\n      variant === 'normal' && direction == 'horizontal'\r\n  }\"\r\n>\r\n  <legend *ngIf=\"legend\">{{ legend }}</legend>\r\n\r\n  <ng-container *ngFor=\"let item of items\">\r\n    <app-checkbox\r\n      [label]=\"item.label\"\r\n      [checked]=\"item.checked\"\r\n      [isLabelHidden]=\"item.isLabelHidden\"\r\n      [isLarge]=\"variant === 'large' ? true : item.isLarge\"\r\n      [isInvalid]=\"item.isInvalid\"\r\n    >\r\n    </app-checkbox>\r\n  </ng-container>\r\n</fieldset> -->\r\n\r\n<fieldset\r\n  class=\"checkbox-group\"\r\n  [ngClass]=\"{\r\n    'checkbox-group--vertical': isVertical,\r\n    'checkbox-group--horizontal': !isVertical\r\n  }\"\r\n>\r\n  <legend *ngIf=\"legend\">{{ legend }}</legend>\r\n  <ng-container *ngFor=\"let item of items\">\r\n    <app-checkbox\r\n      [label]=\"item.label\"\r\n      [checked]=\"item.checked\"\r\n      [isLabelHidden]=\"item.isLabelHidden\"\r\n      [isInvalid]=\"item.isInvalid\"\r\n      [isLarge]=\"isLarge !== undefined ? isLarge : item.isLarge\"\r\n    >\r\n    </app-checkbox>\r\n  </ng-container>\r\n</fieldset>\r\n"
+            "templateData": "<fieldset\r\n  class=\"checkbox-group\"\r\n  [ngClass]=\"{\r\n    'checkbox-group--vertical': isLarge === true || isVertical,\r\n    'checkbox-group--horizontal': isLarge !== true && !isVertical\r\n  }\"\r\n>\r\n  <legend *ngIf=\"legend\">{{ legend }}</legend>\r\n  <ng-container *ngFor=\"let item of items\">\r\n    <app-checkbox\r\n      [label]=\"item.label\"\r\n      [checked]=\"item.checked\"\r\n      [isLabelHidden]=\"item.isLabelHidden\"\r\n      [isInvalid]=\"item.isInvalid\"\r\n      [isLarge]=\"isLarge !== undefined ? isLarge : item.isLarge\"\r\n    >\r\n    </app-checkbox>\r\n  </ng-container>\r\n</fieldset>\r\n"
         },
         {
             "name": "HeaderComponent",
@@ -696,6 +757,18 @@
                 "defaultValue": "() => bootstrapApplication(AppComponent, config)"
             },
             {
+                "name": "checkboxGroupArgTypes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/checkbox-group/stories/checkbox-group.args.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ArgTypes<CheckboxGroupArgs>",
+                "defaultValue": "{\r\n  legend: {\r\n    control: 'text',\r\n    description: 'Optional legend for the checkbox group fieldset.',\r\n  },\r\n  items: {\r\n    control: 'object',\r\n    description:\r\n      'Array of checkbox items. Each item should have a label (string), checked (boolean), and optionally isInvalid, isLabelHidden, and isLarge.',\r\n  },\r\n  isVertical: {\r\n    control: 'boolean',\r\n    description:\r\n      'Determines if the checkbox group is displayed vertically (true) or horizontally (false).',\r\n  },\r\n  isLarge: {\r\n    control: 'boolean',\r\n    description:\r\n      'If set to true, all checkboxes in the group will use the large variant and the layout will always be vertical.',\r\n  },\r\n}",
+                "rawdescription": "ArgTypes for Storybook controls and documentation.",
+                "description": "<p>ArgTypes for Storybook controls and documentation.</p>\n"
+            },
+            {
                 "name": "config",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -704,6 +777,18 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "mergeApplicationConfig(appConfig, serverConfig)"
+            },
+            {
+                "name": "defaultCheckboxItems",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/checkbox-group/stories/checkbox-group.args.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "CheckboxItem[]",
+                "defaultValue": "[\r\n  { label: 'Option 1', checked: false },\r\n  { label: 'Option 2', checked: true, isInvalid: true },\r\n  { label: 'Option 3', checked: false },\r\n]",
+                "rawdescription": "Default checkbox items that can be reused in stories.",
+                "description": "<p>Default checkbox items that can be reused in stories.</p>\n"
             },
             {
                 "name": "serverConfig",
@@ -744,6 +829,32 @@
                     "defaultValue": "() => bootstrapApplication(AppComponent, config)"
                 }
             ],
+            "src/app/components/checkbox-group/stories/checkbox-group.args.ts": [
+                {
+                    "name": "checkboxGroupArgTypes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/checkbox-group/stories/checkbox-group.args.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ArgTypes<CheckboxGroupArgs>",
+                    "defaultValue": "{\r\n  legend: {\r\n    control: 'text',\r\n    description: 'Optional legend for the checkbox group fieldset.',\r\n  },\r\n  items: {\r\n    control: 'object',\r\n    description:\r\n      'Array of checkbox items. Each item should have a label (string), checked (boolean), and optionally isInvalid, isLabelHidden, and isLarge.',\r\n  },\r\n  isVertical: {\r\n    control: 'boolean',\r\n    description:\r\n      'Determines if the checkbox group is displayed vertically (true) or horizontally (false).',\r\n  },\r\n  isLarge: {\r\n    control: 'boolean',\r\n    description:\r\n      'If set to true, all checkboxes in the group will use the large variant and the layout will always be vertical.',\r\n  },\r\n}",
+                    "rawdescription": "ArgTypes for Storybook controls and documentation.",
+                    "description": "<p>ArgTypes for Storybook controls and documentation.</p>\n"
+                },
+                {
+                    "name": "defaultCheckboxItems",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/checkbox-group/stories/checkbox-group.args.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "CheckboxItem[]",
+                    "defaultValue": "[\r\n  { label: 'Option 1', checked: false },\r\n  { label: 'Option 2', checked: true, isInvalid: true },\r\n  { label: 'Option 3', checked: false },\r\n]",
+                    "rawdescription": "Default checkbox items that can be reused in stories.",
+                    "description": "<p>Default checkbox items that can be reused in stories.</p>\n"
+                }
+            ],
             "src/app/app.config.server.ts": [
                 {
                     "name": "config",
@@ -773,8 +884,8 @@
     },
     "routes": [],
     "coverage": {
-        "count": 14,
-        "status": "low",
+        "count": 31,
+        "status": "medium",
         "files": [
             {
                 "filePath": "src/app/app.component.ts",
@@ -832,6 +943,35 @@
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
                 "status": "low"
+            },
+            {
+                "filePath": "src/app/components/checkbox-group/stories/checkbox-group.args.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "CheckboxGroupArgs",
+                "coveragePercent": 100,
+                "coverageCount": "5/5",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/app/components/checkbox-group/stories/checkbox-group.args.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "checkboxGroupArgTypes",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/app/components/checkbox-group/stories/checkbox-group.args.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultCheckboxItems",
+                "coveragePercent": 100,
+                "coverageCount": "1/1",
+                "status": "very-good"
             },
             {
                 "filePath": "src/app/components/checkbox/checkbox.component.ts",
