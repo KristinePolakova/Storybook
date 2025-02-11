@@ -3,7 +3,7 @@ import { moduleMetadata } from '@storybook/angular';
 import { CheckboxComponent } from '../checkbox.component';
 
 const meta: Meta<CheckboxComponent> = {
-  title: 'Components/Checkbox',
+  title: 'Components/Forms/Checkbox',
   component: CheckboxComponent,
   tags: ['autodocs'],
   decorators: [
@@ -52,8 +52,8 @@ export const Large: Story = {
 
 export const WithSubtitle: Story = {
   args: {
-    label: "Default Checkbox",
+    label: 'Default Checkbox',
     checked: false,
-    subtitle: "Subtitle text for default checkbox"
-  }
+    subtitle: 'Subtitle text for default checkbox',
+  },
 };

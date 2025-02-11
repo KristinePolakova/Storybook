@@ -1,4 +1,3 @@
-// checkbox-group.stories.ts
 import type { Meta, StoryObj } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import { CheckboxGroupComponent } from '../checkbox-group.component';
@@ -8,7 +7,7 @@ import {
 } from './checkbox-group.args';
 
 const meta: Meta<CheckboxGroupComponent> = {
-  title: 'Components/Checkbox Group',
+  title: 'Components/Forms/Checkbox Group',
   component: CheckboxGroupComponent,
   tags: ['autodocs'],
   decorators: [

@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
 /**
  * Checkboxes can be used as a individual component or with multiple in a group
  * You can use 'labelHidden' boolean which makes label invisible, but remains accessible by screenreaders.
- * Take a look at the <a href="/docs/components-checkbox-group--docs">Checkbox groups</a> we support.
+ * Take a look at the <a href="/docs/forms/components-checkbox-group--docs">Checkbox groups</a> we support.
  *
  */
 
