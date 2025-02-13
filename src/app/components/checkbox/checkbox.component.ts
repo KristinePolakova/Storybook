@@ -34,7 +34,6 @@ export class CheckboxComponent {
   /** Subtext below the label of checkbox*/
   @Input() subtitle?: string;
 
-  /** @internal*/
   toggleCheck(): void {
     this.checked = !this.checked;
   }

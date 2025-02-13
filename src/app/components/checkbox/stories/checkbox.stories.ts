@@ -18,7 +18,6 @@ const meta: Meta<CheckboxComponent> = {
   // Defines an array of decorators that wrap your story.
   // Decorators allow you to modify or provide additional context (such as module configuration) for your story.
   decorators: [
-    // Uses the moduleMetadata function to specify additional Angular module metadata (similar to an NgModule) for the story.
     // In this case, it declares that the CheckboxComponent should be imported into the storys module context.
     // This is particularly useful for standalone components or when you need to provide extra declarations, imports, or providers.
     moduleMetadata({
